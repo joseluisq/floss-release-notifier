@@ -1,0 +1,15 @@
+node_modules
+coverage
+dist
+**/.DS_Store
+*.log
+/*.js
+/*.map
+/*.d.ts
+*cache
+*.lock
+*lock.json
+
+!/*.config.js
+!/*.conf.js
+!/benchmark.js

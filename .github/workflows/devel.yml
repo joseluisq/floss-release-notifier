@@ -1,0 +1,25 @@
+name: devel
+on:
+  push:
+    branches:
+    - master
+  schedule:
+    - cron: '45 02 * * *' # Every day at 02:45 UTC
+
+jobs:
+  test:
+    name: Notifier
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v1
+        with:
+          node-version: '18.x'
+      - name: Check
+        env:
+          CI: true
+          COVERAGE: false
+          FLAKEY: false
+        run: |
+					yarn
+					yarn cy:run
