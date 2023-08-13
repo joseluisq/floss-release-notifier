@@ -4,7 +4,7 @@ on:
     branches:
     - master
   schedule:
-    - cron: '45 02 * * *' # Every day at 02:45 UTC
+    - cron: '0 */5 * * *' # At minute 0 past every 5th hour UTC
 
 jobs:
   test:
@@ -17,9 +17,10 @@ jobs:
           node-version: '18.x'
       - name: Check
         env:
-          CI: true
+          CYPRESS_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
+          CYPRESS_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
           COVERAGE: false
           FLAKEY: false
         run: |
-					yarn
-					yarn cy:run
+          yarn
+          yarn cy:run
