@@ -9,18 +9,16 @@ on:
 jobs:
   test:
     name: Notifier
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v2
-      - uses: actions/setup-node@v1
+      - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
       - name: Check
         env:
           CYPRESS_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
           CYPRESS_TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
-          COVERAGE: false
-          FLAKEY: false
         run: |
           yarn
           yarn cy:run
