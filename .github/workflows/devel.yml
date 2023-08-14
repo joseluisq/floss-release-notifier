@@ -15,6 +15,7 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version: '18.x'
+          cache: yarn
       - name: Check
         env:
           CYPRESS_TELEGRAM_TOKEN: ${{ secrets.TELEGRAM_TOKEN }}
