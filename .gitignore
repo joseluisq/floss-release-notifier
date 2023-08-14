@@ -7,10 +7,11 @@ dist
 /*.map
 /*.d.ts
 *cache
-*.lock
 *.mp4
 *lock.json
-
+*TODO*
+screenshots
+videos
 !/*.config.js
 !/*.conf.js
 !/benchmark.js
